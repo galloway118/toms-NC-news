@@ -1,0 +1,13 @@
+.header {
+    padding-top: 0px;
+    width: 100%;
+    border: 5px rgb(240, 244, 247) double;
+    text-align: center;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    background-color: #0c1529;
+    color: rgb(240, 244, 247);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(2px + 2vmin);
+  }

@@ -1,0 +1,21 @@
+.sidebarbutton {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 25px;
+    width: 25px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+} 
+
+.sidebarbutton:focus {
+    outline: none;
+}
+
+.buttonline {
+   width: 20px;
+   height: 2px;
+   background-color: white; 
+}

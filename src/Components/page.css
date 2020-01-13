@@ -1,0 +1,57 @@
+.Banner  {
+    width: 100%;
+    height: 100%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border: 5px rgb(240, 244, 247) double;
+    text-align: center;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    background-color: #0c1529;
+    color: rgb(240, 244, 247);
+    align-items: center;
+    justify-content: center;
+    font-size: calc(8px + 2vmin);
+  }
+
+.page_layout {
+    width: 100%;
+    height: 100%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border: 5px #0c1529 double;        
+    text-align: center;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-weight: 600;
+    background-color: rgb(240, 244, 247);
+    color: #0c1529;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(2px + 2vmin);
+    line-height: 2;
+    text-align:justify;
+}
+
+#articlelist a {
+  color: #0c1529;
+  text-decoration: none;
+  text-align: center;
+  
+
+}
+
+#articlelist ul {
+  list-style: none;
+  
+
+}
+
+.page_layout li {
+  width: 90%;
+  padding: 5% 5%;
+  box-shadow: bisque;
+  text-decoration: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 1% 1%;
+  margin: 1% 1%;
+  }
