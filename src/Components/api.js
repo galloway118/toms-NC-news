@@ -10,7 +10,25 @@ export const fetchAllArticles = () => {
 
 export const fetchArticlebyId = id => {
     return axios.get(`${baseURL}/articles/${id}`).then(response => {
-        console.log(response.data.article)
         return response.data.article
     })
+}
+
+export const updateArticleVote = id => {
+    return axios.patch(`${baseURL}/articles/${id}`, {inc_votes: 1}).then(response => {
+        return response.data.article.votes;   
+    })
+}
+
+export const fetchCommentsbyArticleId = id => {
+    return axios.get(`${baseURL}/articles/${id}/comments`).then(response => {
+        return (response.data.comments)
+    })
+}
+
+export const updateCommentVote = id => {
+    return axios.patch(`${baseURL}/comments/${id}`, {inc_votes: 1}).then(response => {
+        console.log(response.data.comment.votes)
+        return (response.data.comment.votes)
+    } )
 }

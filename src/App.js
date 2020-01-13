@@ -9,6 +9,7 @@ import Login from './Components/Login/Login';
 import Error from './Components/Error/errorPage';
 import Header from './Components/header/header';
 import SingleArticle from './Components/singleArticle/singleArticle'
+import CommentsById from './Components/commentsById/commentsById'
 
 
 class App extends React.Component {
@@ -33,6 +34,7 @@ class App extends React.Component {
       <WelcomePage path="/"/> 
       <Articles path="/Articles"/>
       <SingleArticle path="/Articles/:Article_id"/>
+      <CommentsById path="/Articles/:Article_id/comments"/>
       <Login path="/Login"/>
       <Error default />
       </Router>
