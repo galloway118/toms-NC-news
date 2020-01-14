@@ -8,7 +8,6 @@ class CommentsById extends React.Component {
     
     state ={ 
         comments: [],
-        updateProps: false
     }
 
     getComments = (event) => {
@@ -26,6 +25,13 @@ class CommentsById extends React.Component {
           <h2 className="Banner">  Comments for Article Id: {this.props.Article_id} </h2>
         </div>
         <div className="page_layout" id="articlelist"> 
+        <label> Add new Comment
+            <input></input>
+        </label>
+        <button>Submit Comment</button>
+        </div>
+        <div className="page_layout" id="articlelist">
+           
             <ul>
                 {comments.map(comment => {
                     return (  
@@ -49,12 +55,12 @@ class CommentsById extends React.Component {
         this.getComments();
     }
 
-    componentDidUpdate= (prevProps, prevState) => {
-        console.log(prevProps)
-        if(prevProps !== this.props){
-            this.getComments(); 
-        }
-    }
+    // componentDidUpdate= (prevProps, prevState) => {
+    //     console.log(prevProps)
+    //     if(prevProps !== this.props){
+    //         this.getComments(); 
+    //     }
+    // }
     }
 
 

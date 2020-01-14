@@ -34,8 +34,8 @@ render () {
           <li key={author}>Author: {author} </li>
           <li key={body}>Article: {body} </li>
           <li key={created_at}>Created At: {created_at} </li>
-          <li key={votes}>Votes: {votes} </li>
-          <li key={comment_count}>Comment Count: {comment_count} </li>
+          <li key={votes }>Votes: {votes} </li>
+          <li key={article_id + comment_count}>Comment Count: {comment_count} </li>
         </ul> 
         <button onClick={this.addVotes}>Like Article</button>
         <button onClick={this.getComments}><Link to={linkPath}>View Comments</Link></button>
@@ -46,8 +46,7 @@ render () {
 addVotes = (event) => {
     updateArticleVote(this.state.SingleArticle.article_id)
     .then(vote => {
-        this.setState(currentState => { 
-            console.log(currentState)   
+        this.setState(currentState => {   
           return {SingleArticle: {...currentState.SingleArticle, votes: vote}}
         })
         })

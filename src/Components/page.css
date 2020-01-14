@@ -36,14 +36,10 @@
   color: #0c1529;
   text-decoration: none;
   text-align: center;
-  
-
 }
 
 #articlelist ul {
   list-style: none;
-  
-
 }
 
 .page_layout li {
@@ -55,3 +51,14 @@
   padding: 1% 1%;
   margin: 1% 1%;
   }
+
+  #topiclist{
+    background-color: none;
+    box-shadow: none;
+    display: inline-flex;
+    }
+  
+    #topiclist ul {
+      list-style: none;
+      display: inline-flex;
+    }

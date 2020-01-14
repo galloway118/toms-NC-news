@@ -26,13 +26,14 @@ class App extends React.Component {
     <div className="App">
       <div className="fixed">
         <Header className="header" user={this.state.user}/>
-        <Navbar navBarClickHandler={this.sideBarHandler}/>
+        <Navbar navBarClickHandler={this.sideBarHandler} user={this.state.user}/>
         {sideBar}
         </div>
         <div className="box">
       <Router>  
       <WelcomePage path="/"/> 
       <Articles path="/Articles"/>
+      
       <SingleArticle path="/Articles/:Article_id"/>
       <CommentsById path="/Articles/:Article_id/comments"/>
       <Login path="/Login"/>

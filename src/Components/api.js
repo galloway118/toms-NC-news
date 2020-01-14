@@ -2,8 +2,14 @@ import axios from 'axios';
 
 const baseURL= "https://tom-news-app.herokuapp.com/api"
 
-export const fetchAllArticles = () => {
-    return axios.get(`${baseURL}/articles`).then(({data}) => {
+export const fetchAllArticles = (sort_by, topic) => {
+    console.log(topic)
+    return axios.get(`${baseURL}/articles`,{ 
+        params:{
+            sort_by: sort_by,
+            topic: topic
+    
+    }}).then(({data}) => {
         return data.articles;
     });
 }
@@ -31,4 +37,11 @@ export const updateCommentVote = id => {
         console.log(response.data.comment.votes)
         return (response.data.comment.votes)
     } )
+}
+
+export const fetchAllTopics = () => {
+    return axios.get(`${baseURL}/topics`)
+    .then(response => {
+        return response.data.topics;
+    })
 }
