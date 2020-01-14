@@ -33,9 +33,10 @@ export const fetchCommentsbyArticleId = id => {
 }
 
 export const updateCommentVote = id => {
+    console.log(id)
     return axios.patch(`${baseURL}/comments/${id}`, {inc_votes: 1}).then(response => {
-        console.log(response.data.comment.votes)
-        return (response.data.comment.votes)
+        console.log(response.data.comment)
+        return (response.data.comment)
     } )
 }
 
@@ -45,3 +46,4 @@ export const fetchAllTopics = () => {
         return response.data.topics;
     })
 }
+

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../page.css'
 import {fetchCommentsbyArticleId} from '../api'
-import UpdateVote from './updateCommentVote';
+import {Link} from '@reach/router';
 
 
 class CommentsById extends React.Component {
@@ -34,15 +34,16 @@ class CommentsById extends React.Component {
            
             <ul>
                 {comments.map(comment => {
+                    const linkPath = `/comment/${comment.comment_id}`
                     return (  
-                        <li key={comment.comment_id}> 
+                        // votechange = 1
+                        <li key={comment.comment_id}><Link to={linkPath}><p>
                         Comment Id: {comment.comment_id} <br></br>
                         Votes: {comment.votes}<br></br>
                         Created At: {comment.created_at}<br></br>
                         Author: {comment.author}<br></br>
-                        Comment: {comment.body}<br></br>
-                        <UpdateVote comment={comment}/>
-                        </li> 
+                        Comment: {comment.body}<br></br></p></Link>
+            </li> 
                 )} 
                 )}
             </ul>
@@ -54,13 +55,7 @@ class CommentsById extends React.Component {
     componentDidMount = () => {
         this.getComments();
     }
-
-    // componentDidUpdate= (prevProps, prevState) => {
-    //     console.log(prevProps)
-    //     if(prevProps !== this.props){
-    //         this.getComments(); 
-    //     }
-    // }
+    
     }
 
 

@@ -3,27 +3,53 @@ import {updateCommentVote} from '../api';
 
 class UpdateVote extends React.Component {
     state = {
-        singleComment: {}
+        singleComment: {},
+        incrementVote: 1
     }
 
-    componentDidMount = (props) => {
 
-        this.setState({singleComment: this.props.comment_id});
+    getCommentbyId() {
+        updateCommentVote(this.props.comment_id).then(singlecomment => {
+            return this.setState({singleComment: singlecomment})
+            })
+    }
+    
+    componentDidMount = () => { 
+        this.getCommentbyId()
+        
     }
     render() {
-        return ( 
-        <button onClick={this.likeComment}>Like Comment</button>  
+        const {comment_id, votes, created_at, author, body} = this.state.singleComment
+        return (
+            <div>
+        <div className="welcome_page">
+          <h2 className="Banner">  Comment Id: {this.props.comment_id}</h2> </div>
+        <div className="page_layout" id="articlelist"> 
+                <ul>
+        <li key={this.props.comment_id}>
+        Comment Id: {comment_id} <br></br>
+        Votes: {votes -1 }<br></br>
+        Created At: {created_at}<br></br>
+        Author: {author}<br></br>
+        Comment: {body}<br></br>
+            </li> 
+        <button value={this.props.comment_id} onClick={this.likeComment}>Like Comment</button> 
+        </ul>
+        </div> 
+        </div>
         )
     }
 
-    likeComment = (event) => {
-        updateCommentVote(this.props.comment.comment_id)
+        likeComment = (event) => {
+        updateCommentVote(event.target.value)
         .then(vote => {
             this.setState(currentState => { 
-                return {comment: {...currentState.singleComment, votes: vote}} 
+                console.log(currentState)
+                return {singleComment: {...currentState.singleComment, votes: vote.votes}} 
             })
-            })
-}
+             })
+
+    }
 }
 export default UpdateVote;
 

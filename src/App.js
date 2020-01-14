@@ -10,6 +10,7 @@ import Error from './Components/Error/errorPage';
 import Header from './Components/header/header';
 import SingleArticle from './Components/singleArticle/singleArticle'
 import CommentsById from './Components/commentsById/commentsById'
+import UpdateVote from './Components/commentsById/updateCommentVote';
 
 
 class App extends React.Component {
@@ -36,6 +37,7 @@ class App extends React.Component {
       
       <SingleArticle path="/Articles/:Article_id"/>
       <CommentsById path="/Articles/:Article_id/comments"/>
+      <UpdateVote path="/comment/:comment_id"/>
       <Login path="/Login"/>
       <Error default />
       </Router>
