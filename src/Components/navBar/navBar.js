@@ -19,7 +19,7 @@ const Navbar = ({navBarClickHandler, username, handleLogOut}) => {
                     <li><Link to="/Articles">Articles</Link></li>
                      {(username === null)?
                     <li><Link to="/Login">Log In</Link></li>:
-                    <li><button onClick={handleLogOut}><span>👩‍💻</span>{username}</button>  </li>}
+                    <li><button onClick={handleLogOut}><span role='img' aria-label="user icon"> 👩‍💻</span>{username}</button>  </li>}
                 </ul>
             </div>
         </nav>

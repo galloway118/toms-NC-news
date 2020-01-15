@@ -33,7 +33,6 @@ export const fetchCommentsbyArticleId = id => {
 
 export const updateCommentVote = (id, votechange) => {
     return axios.patch(`${baseURL}/comments/${id}`, {inc_votes: votechange}).then(response => {
-        console.log(response.data.comment)
         return (response.data.comment)
     } )
 }
@@ -54,5 +53,11 @@ export const checkUser = (userInput) => {
     return axios.get(`${baseURL}/users/${userInput}`).then(response => {
         return (response.data.user.username)
     })
+}
+
+export const postComment = (id,username,newComment) => {
+    console.log(id,username,newComment)
+    return axios.post(`${baseURL}/articles/${id}/comments`, {username:username, body:newComment}).then(response => {
+        return response.data.comment})
 }
 
