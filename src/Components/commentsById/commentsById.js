@@ -17,6 +17,7 @@ class CommentsById extends React.Component {
         })
     }
     render () {
+        
     const {comments} = this.state;
     if(this.state.isLoading) {
         return (
@@ -37,7 +38,7 @@ class CommentsById extends React.Component {
               onChange={this.onChange}
               value={this.state.newComment}></input>
         </label>
-        <button>Submit Comment</button>
+        <button disabled={this.props.username === null}>Submit Comment</button>
         </form>
         </div>
         <div className="page_layout" id="articlelist">
@@ -62,7 +63,6 @@ class CommentsById extends React.Component {
         const {newComment} = this.state
         const {Article_id, username} =this.props
         postComment(Article_id, username, newComment).then(comment => {
-         console.log(comment, 'handleSubmit')
          this.setState((currentState) => {
             return {comments: [comment, ...currentState.comments]
             }

@@ -30,18 +30,16 @@ class App extends React.Component {
         <Navbar navBarClickHandler={this.sideBarHandler} username={this.state.username} handleLogOut={this.handleLogOut} />
         {sideBar}
         </div>
-        <div className="box">
-      <Router>  
+        
+      <Router className="box">  
       <WelcomePage path="/"/> 
       <Articles path="/Articles"/>
-      
       <SingleArticle path="/Articles/:Article_id" username={this.state.username}/>
       <CommentsById path="/Articles/:Article_id/comments" username={this.state.username}/>
       {/* <UpdateVote path="/comment/:comment_id" username={this.state.username}/> */}
       <Login path="/Login" username={this.state.username} updateUser={this.updateUser}/>
       <ErrorHandler default />
       </Router>
-      </div>
     </div>
   );
   }

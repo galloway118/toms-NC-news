@@ -56,7 +56,6 @@ export const checkUser = (userInput) => {
 }
 
 export const postComment = (id,username,newComment) => {
-    console.log(id,username,newComment)
     return axios.post(`${baseURL}/articles/${id}/comments`, {username:username, body:newComment}).then(response => {
         return response.data.comment})
 }
