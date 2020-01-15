@@ -1,22 +1,21 @@
-import React, {Component} from 'react';
+import React from 'react';
 import '../page.css'
 import {fetchAllArticles} from '../api'
 import {Link} from '@reach/router';
 import Topics from '../topics/getTopics'
 
-// import SortBy from '../sortBy/sortBy'
 
-class Articles extends React.Component {
-    
+class Articles extends React.Component {   
     state ={ 
         articles: [],
         sort_by: 'created_at',
-        singleTopic: 'football'
-    }
+        singleTopic: 'football',
+        isLoading: true,
+     }
 
     getAllArticles = () =>  {
         fetchAllArticles(this.state.sort_by, this.state.singleTopic).then(articles => 
-            this.setState({articles:articles}))
+            this.setState({articles:articles, isLoading:false}))
         }
 
     componentDidUpdate = (prevProps, prevState) => {
@@ -25,13 +24,18 @@ class Articles extends React.Component {
         this.getAllArticles(); }
 
         else if(prevState.singleTopic !== this.state.singleTopic){
-            console.log("ffff")
             this.getAllArticles();
         }
      }
 
     render () {
     const {articles} = this.state;
+    if(this.state.isLoading) {
+        return (
+          <div className="welcome_page">
+            <h2 className="Banner">  LOADING...</h2> 
+            </div>
+        )} else {
     return (
         <div>
         <div className="welcome_page">
@@ -40,7 +44,6 @@ class Articles extends React.Component {
         <div className="page_layout"> 
         <div> 
         <Topics updateTopic={this.updateTopic}/>
-        {/* <SortBy sortBy={this.state.sortBy}/> */}
         </div>
         <div><p>Sort By:</p>
         <button value="created_at" onClick={this.sort_By} >Date Created</button> 
@@ -62,12 +65,11 @@ class Articles extends React.Component {
           </div>
           </div>
 
-    )
-    }
+    )}
+}
     sort_By = (event) => { 
         return this.setState({ sort_by: event.target.value}      
-    )
-}
+    )}
 
     updateTopic = (updatedTopic) => {
     return this.setState({singleTopic: updatedTopic})

@@ -4,7 +4,7 @@ import React from 'react';
 
 
 
-const Error = (props) => {
+const ErrorHandler = (props) => {
         return (
           <div className="Error_page">
              <p>error</p>
@@ -13,4 +13,4 @@ const Error = (props) => {
       } 
 
 
-export default Error;
+export default ErrorHandler;

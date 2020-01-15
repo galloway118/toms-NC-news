@@ -4,22 +4,28 @@ import {updateCommentVote} from '../api';
 class UpdateVote extends React.Component {
     state = {
         singleComment: {},
-        incrementVote: 1
+        isLoading: true
     }
-
-
     getCommentbyId() {
         updateCommentVote(this.props.comment_id).then(singlecomment => {
-            return this.setState({singleComment: singlecomment})
+            return this.setState({singleComment: singlecomment, isLoading:false})
             })
     }
-    
     componentDidMount = () => { 
-        this.getCommentbyId()
-        
+        this.getCommentbyId()  
     }
+    
+
     render() {
+        if(this.state.isLoading) {
+            return (
+              <div className="welcome_page">
+                <h2 className="Banner">  LOADING...</h2> 
+                </div>
+            )}
+            else {
         const {comment_id, votes, created_at, author, body} = this.state.singleComment
+        
         return (
             <div>
         <div className="welcome_page">
@@ -33,18 +39,18 @@ class UpdateVote extends React.Component {
         Author: {author}<br></br>
         Comment: {body}<br></br>
             </li> 
-        <button value={this.props.comment_id} onClick={this.likeComment}>Like Comment</button> 
+        <button value={this.props.comment_id} onClick={this.likeComment}>Like Comment</button>
+        <button value={this.props.username} onClick={this.deleteComment}>Delete Comment</button>
         </ul>
         </div> 
         </div>
         )
-    }
+    } }
 
         likeComment = (event) => {
         updateCommentVote(event.target.value)
         .then(vote => {
             this.setState(currentState => { 
-                console.log(currentState)
                 return {singleComment: {...currentState.singleComment, votes: vote.votes}} 
             })
              })

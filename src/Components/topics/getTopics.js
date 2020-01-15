@@ -5,7 +5,8 @@ import '../page.css';
 
 class Topics extends React.Component {
 state = {
-    topics: []
+    topics: [],
+    isLoading: true
 }
 
 componentDidMount= () => {
@@ -13,6 +14,12 @@ componentDidMount= () => {
   }
   render() {
     const {topics} = this.state;
+    if(this.state.isLoading) {
+        return (
+          <div className="welcome_page">
+            <h2 className="Banner">  LOADING...</h2> 
+            </div>
+        )} else {
   return (
       <div id="topiclist">
           <p>Filter by Topic:</p>
@@ -25,10 +32,10 @@ componentDidMount= () => {
       </div>
   )
 }
-
+  }
 getAllTopics = () => {
         fetchAllTopics().then(topics => {
-            this.setState({topics: topics})
+            this.setState({topics: topics, isLoading:false})
         })
 }
 

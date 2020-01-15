@@ -8,11 +8,11 @@ class SingleArticle extends Component {
     state = {
       SingleArticle: {
       },
-      articleDeleted: false
+      isLoading: true
     }
     getSingleArticle =( ) => {
         fetchArticlebyId(this.props.Article_id).then(article => {
-          this.setState({SingleArticle: article})
+          this.setState({SingleArticle: article, isLoading: false})
         })
       }
       componentDidMount= () => {
@@ -22,6 +22,13 @@ class SingleArticle extends Component {
 render () {
     const {title, article_id, topic, author, body, created_at, votes, comment_count} = this.state.SingleArticle
     const linkPath = `/Articles/${article_id}/comments`;
+    if(this.state.isLoading) {
+      return (
+        <div className="welcome_page">
+          <h2 className="Banner">  LOADING...</h2> 
+          </div>
+      )}
+      else {
     return (
         <div>
         <div className="welcome_page">
@@ -43,6 +50,7 @@ render () {
             </div>
     )
 }
+}
 addVotes = (event) => {
     updateArticleVote(this.state.SingleArticle.article_id)
     .then(vote => {
@@ -50,12 +58,7 @@ addVotes = (event) => {
           return {SingleArticle: {...currentState.SingleArticle, votes: vote}}
         })
         })
-
-}
-
-
-
-
+      }
 }
 
 export default SingleArticle;

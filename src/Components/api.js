@@ -3,7 +3,6 @@ import axios from 'axios';
 const baseURL= "https://tom-news-app.herokuapp.com/api"
 
 export const fetchAllArticles = (sort_by, topic) => {
-    console.log(topic)
     return axios.get(`${baseURL}/articles`,{ 
         params:{
             sort_by: sort_by,
@@ -33,7 +32,6 @@ export const fetchCommentsbyArticleId = id => {
 }
 
 export const updateCommentVote = id => {
-    console.log(id)
     return axios.patch(`${baseURL}/comments/${id}`, {inc_votes: 1}).then(response => {
         console.log(response.data.comment)
         return (response.data.comment)

@@ -1,24 +1,27 @@
-import React, {Component} from 'react';
+import React from 'react';
 import '../page.css'
 import {fetchCommentsbyArticleId} from '../api'
 import {Link} from '@reach/router';
 
 
 class CommentsById extends React.Component {
-    
     state ={ 
         comments: [],
-    }
+        isLoading: true}
 
     getComments = (event) => {
         fetchCommentsbyArticleId(this.props.Article_id).then( comments => {
-                this.setState({comments:comments})
+                this.setState({comments:comments, isLoading: false})
         })
     }
-
     render () {
     const {comments} = this.state;
-   
+    if(this.state.isLoading) {
+        return (
+          <div className="welcome_page">
+            <h2 className="Banner">  LOADING...</h2> 
+            </div>
+        )} else {
     return (
         <div>
         <div className="welcome_page">
@@ -36,27 +39,18 @@ class CommentsById extends React.Component {
                 {comments.map(comment => {
                     const linkPath = `/comment/${comment.comment_id}`
                     return (  
-                        // votechange = 1
                         <li key={comment.comment_id}><Link to={linkPath}><p>
                         Comment Id: {comment.comment_id} <br></br>
                         Votes: {comment.votes}<br></br>
                         Created At: {comment.created_at}<br></br>
                         Author: {comment.author}<br></br>
                         Comment: {comment.body}<br></br></p></Link>
-            </li> 
-                )} 
-                )}
-            </ul>
+            </li> )} 
+        )} </ul> </div>
           </div>
-          </div>
-
-    )
-    }
+    )}
+}
     componentDidMount = () => {
-        this.getComments();
+        this.getComments();}  
     }
-    
-    }
-
-
 export default CommentsById;

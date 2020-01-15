@@ -6,17 +6,17 @@ import SideBar from './Components/sideBar/sideBar';
 import WelcomePage from './Components/welcomePage/welcomePage';
 import Articles from './Components/Articles/Articles';
 import Login from './Components/Login/Login';
-import Error from './Components/Error/errorPage';
 import Header from './Components/header/header';
 import SingleArticle from './Components/singleArticle/singleArticle'
 import CommentsById from './Components/commentsById/commentsById'
 import UpdateVote from './Components/commentsById/updateCommentVote';
+import ErrorHandler from './Components/Error/errorPage';
 
 
 class App extends React.Component {
   state = { 
     sideBarOpen: false,
-    user: "Tom"
+    username: 'tickle122'
   };
   render() {
     let sideBar;
@@ -26,8 +26,8 @@ class App extends React.Component {
   return (
     <div className="App">
       <div className="fixed">
-        <Header className="header" user={this.state.user}/>
-        <Navbar navBarClickHandler={this.sideBarHandler} user={this.state.user}/>
+        <Header className="header" />
+        <Navbar navBarClickHandler={this.sideBarHandler} username={this.state.username} handleLogOut={this.handleLogOut} />
         {sideBar}
         </div>
         <div className="box">
@@ -35,23 +35,24 @@ class App extends React.Component {
       <WelcomePage path="/"/> 
       <Articles path="/Articles"/>
       
-      <SingleArticle path="/Articles/:Article_id"/>
+      <SingleArticle path="/Articles/:Article_id" username={this.state.username}/>
       <CommentsById path="/Articles/:Article_id/comments"/>
-      <UpdateVote path="/comment/:comment_id"/>
+      <UpdateVote path="/comment/:comment_id" username={this.state.username}/>
       <Login path="/Login"/>
-      <Error default />
+      <ErrorHandler default />
       </Router>
       </div>
     </div>
   );
   }
-
   sideBarHandler = () => {
     this.setState((prevState) => {
         return {sideBarOpen: !prevState.sideBarOpen};
     })
   };
-
+  handleLogOut = () => {
+    return this.setState({username: null})
+    }
 }
 
 export default App;
