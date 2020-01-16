@@ -1,25 +1,30 @@
 import React from 'react';
 import {fetchAllTopics} from '../api';
 import '../page.css';
+import ErrorHandler from '../Error/errorPage'
 
 
 class Topics extends React.Component {
 state = {
     topics: [],
-    isLoading: true
+    isLoading: true,
+    errorResponse: null
 }
 
 componentDidMount= () => {
     this.getAllTopics();
   }
   render() {
-    const {topics} = this.state;
+    const {topics, errorResponse} = this.state;
     if(this.state.isLoading) {
         return (
           <div className="welcome_page">
             <h2 className="Banner">  LOADING...</h2> 
             </div>
         )} else {
+          if(errorResponse){
+            return <ErrorHandler errorResponse={errorResponse}/>
+          };
   return (
       <div id="topiclist">
           <p>Filter by Topic:</p>
@@ -33,10 +38,14 @@ componentDidMount= () => {
   )
 }
   }
+
 getAllTopics = () => {
         fetchAllTopics().then(topics => {
             this.setState({topics: topics, isLoading:false})
-        })
+        }).catch(err => {
+          this.setState({errorResponse: {status: err.response.status,
+              msg: err.response.data.msg}, isLoading:false})
+})
 }
 
 filterByTopic = (event) => {

@@ -8,13 +8,17 @@ class CommentsById extends React.Component {
     state ={ 
         comments: [],
         isLoading: true,
-        newComment: ''
+        newComment: '',
+        err: null
     }
 
     getComments = (event) => {
         fetchCommentsbyArticleId(this.props.Article_id).then( comments => {
                 this.setState({comments:comments, isLoading: false})
-        })
+        }).catch(err => {
+            this.setState({errorResponse: {status: err.response.status,
+                msg: err.response.data.msg}, isLoading:false})
+    })
     }
     render () {
         
@@ -28,7 +32,7 @@ class CommentsById extends React.Component {
     return (
         <div>
         <div className="welcome_page">
-          <h2 className="Banner">  Comments for Article Id: {this.props.Article_id} </h2>
+          <h2 className="article_Banner">  Comments for Article Id: {this.props.Article_id} </h2>
         </div>
         <div className="page_layout" id="articlelist"> 
         <form onSubmit={this.handleSubmit}>
@@ -38,7 +42,7 @@ class CommentsById extends React.Component {
               onChange={this.onChange}
               value={this.state.newComment}></input>
         </label>
-        <button disabled={this.props.username === null}>Submit Comment</button>
+        <button disabled={this.props.username === null || this.state.newComment === null}>Submit Comment</button>
         </form>
         </div>
         <div className="page_layout" id="articlelist">
@@ -67,7 +71,10 @@ class CommentsById extends React.Component {
             return {comments: [comment, ...currentState.comments]
             }
         })
-    })
+    }).catch(err => {
+        this.setState({errorResponse: {status: err.response.status,
+            msg: err.response.data.msg}, isLoading:false})
+})
 }
 }
 export default CommentsById;

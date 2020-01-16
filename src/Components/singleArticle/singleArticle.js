@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {fetchArticlebyId, updateArticleVote} from '../api';
 import {Link} from '@reach/router';
+import ErrorHandler from '../Error/errorPage';
 
 
 class SingleArticle extends Component {
@@ -8,27 +9,34 @@ class SingleArticle extends Component {
     state = {
       SingleArticle: {
       },
-      isLoading: true
+      isLoading: true,
+      errorResponse: null
     }
     getSingleArticle =( ) => {
         fetchArticlebyId(this.props.Article_id).then(article => {
           this.setState({SingleArticle: article, isLoading: false})
-        })
-      }
+        }).catch(err => {
+          this.setState({errorResponse: {status: err.response.status,
+          msg: err.response.data.msg}, isLoading:false})
+      })
+    }
       componentDidMount= () => {
         this.getSingleArticle();
       }
 
 render () {
     const {title, article_id, topic, author, body, created_at, votes, comment_count} = this.state.SingleArticle
+    const {errorResponse} =this.state
     const linkPath = `/Articles/${article_id}/comments`;
     if(this.state.isLoading) {
       return (
         <div className="welcome_page">
           <h2 className="Banner">  LOADING...</h2> 
           </div>
-      )}
-      else {
+      )} else {
+        if(errorResponse) {
+            return <ErrorHandler errorResponse={errorResponse}/>} 
+        else {
     return (
         <div>
         <div className="welcome_page">
@@ -50,13 +58,17 @@ render () {
             </div>
     )
 }
+        }
 }
 addVotes = (event) => {
     updateArticleVote(this.state.SingleArticle.article_id)
     .then(vote => {
         this.setState(currentState => {   
           return {SingleArticle: {...currentState.SingleArticle, votes: vote}}
-        })
+        }).catch(err => {
+          this.setState({errorResponse: {status: err.response.status,
+          msg: err.response.data.msg}, isLoading:false})
+      })
         })
       }
 }

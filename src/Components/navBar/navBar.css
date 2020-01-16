@@ -7,7 +7,7 @@
     font-weight: bold;
     color: rgb(240, 244, 247);
     z-index: 400;
-    
+
 }
 
 .navbar_links {
@@ -36,6 +36,8 @@
 .navbar_items {
     color: rgb(240, 244, 247);
     text-decoration: none;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 .navbar_items ul {

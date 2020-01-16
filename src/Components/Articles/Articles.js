@@ -3,6 +3,7 @@ import '../page.css'
 import {fetchAllArticles} from '../api'
 import {Link} from '@reach/router';
 import Topics from '../topics/getTopics'
+import ErrorHandler from '../Error/errorPage';
 
 
 class Articles extends React.Component {   
@@ -11,12 +12,18 @@ class Articles extends React.Component {
         sort_by: 'created_at',
         singleTopic: 'football',
         isLoading: true,
+        errorResponse: null
      }
 
     getAllArticles = () =>  {
-        fetchAllArticles(this.state.sort_by, this.state.singleTopic).then(articles => 
-            this.setState({articles:articles, isLoading:false}))
-        }
+        fetchAllArticles(this.state.sort_by, this.state.singleTopic).then(articles => {
+            this.setState({articles:articles, isLoading:false})
+        }).catch(err => {
+                console.log(err)
+                this.setState({errorResponse: {status: err.response.status,
+                    msg: err.response.data.msg}, isLoading:false})
+        })
+    }
 
     componentDidUpdate = (prevProps, prevState) => {
         if(prevState.sort_by !== this.state.sort_by)
@@ -29,13 +36,16 @@ class Articles extends React.Component {
      }
 
     render () {
-    const {articles} = this.state;
+    const {articles, errorResponse} = this.state;
     if(this.state.isLoading) {
         return (
           <div className="welcome_page">
             <h2 className="Banner">  LOADING...</h2> 
             </div>
         )} else {
+            if(errorResponse) {
+                return <ErrorHandler err={errorResponse}/>} 
+            else {
     return (
         <div>
         <div className="welcome_page">
@@ -65,6 +75,7 @@ class Articles extends React.Component {
 
     )}
 }
+    }
     sort_By = (event) => { 
         return this.setState({ sort_by: event.target.value}      
     )}

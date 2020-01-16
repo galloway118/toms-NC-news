@@ -9,7 +9,6 @@ import Login from './Components/Login/Login';
 import Header from './Components/header/header';
 import SingleArticle from './Components/singleArticle/singleArticle'
 import CommentsById from './Components/commentsById/commentsById'
-// import UpdateVote from './Components/commentsById/updateCommentVote';
 import ErrorHandler from './Components/Error/errorPage';
 
 
@@ -21,7 +20,7 @@ class App extends React.Component {
   render() {
     let sideBar;
     if(this.state.sideBarOpen) {
-      sideBar = <SideBar/>;
+      sideBar = <SideBar  username={this.state.username} handleLogOut={this.handleLogOut}/>;
     }
   return (
     <div className="App">
@@ -36,7 +35,6 @@ class App extends React.Component {
       <Articles path="/Articles"/>
       <SingleArticle path="/Articles/:Article_id" username={this.state.username}/>
       <CommentsById path="/Articles/:Article_id/comments" username={this.state.username}/>
-      {/* <UpdateVote path="/comment/:comment_id" username={this.state.username}/> */}
       <Login path="/Login" username={this.state.username} updateUser={this.updateUser}/>
       <ErrorHandler default />
       </Router>
