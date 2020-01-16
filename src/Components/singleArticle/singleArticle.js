@@ -9,6 +9,7 @@ class SingleArticle extends Component {
     state = {
       SingleArticle: {
       },
+      voteChange: 0,
       isLoading: true,
       errorResponse: null
     }
@@ -30,7 +31,7 @@ render () {
     const linkPath = `/Articles/${article_id}/comments`;
     if(this.state.isLoading) {
       return (
-        <div className="welcome_page">
+        <div>
           <h2 className="Banner">  LOADING...</h2> 
           </div>
       )} else {
@@ -39,7 +40,7 @@ render () {
         else {
     return (
         <div>
-        <div className="welcome_page">
+        <div>
           <h2 className="Banner">  Article</h2> </div>
         <div className="page_layout" id="articlelist"> 
         <ul >
@@ -49,11 +50,12 @@ render () {
           <li key={author}>Author: {author} </li>
           <li key={body}>Article: {body} </li>
           <li key={created_at}>Created At: {created_at} </li>
-          <li key={votes }>Votes: {votes} </li>
+          <li key={votes }>Votes: {votes + this.state.voteChange} </li>
           <li key={article_id + comment_count}>Comment Count: {comment_count} </li>
         </ul> 
         <button onClick={this.getComments}><Link to={linkPath}> View Comments</Link></button>
-        <button onClick={this.addVotes}>Like Article</button>
+        <button disabled={this.state.voteChange === 1} value="like" onClick={this.addVotes}>like</button>
+        <button  disabled={this.state.voteChange === -1} value="dislike" onClick={this.addVotes}>dislike</button>
         </div>
             </div>
     )
@@ -61,16 +63,19 @@ render () {
         }
 }
 addVotes = (event) => {
-    updateArticleVote(this.state.SingleArticle.article_id)
-    .then(vote => {
-        this.setState(currentState => {   
-          return {SingleArticle: {...currentState.SingleArticle, votes: vote}}
-        }).catch(err => {
-          this.setState({errorResponse: {status: err.response.status,
-          msg: err.response.data.msg}, isLoading:false})
-      })
+  console.dir(event.target.value)
+  if(event.target.value === 'like'){
+    updateArticleVote(this.state.SingleArticle.article_id, 1)
+     this.setState(currentState => {   
+          return  {voteChange: currentState.voteChange + 1}
         })
-      }
+    }
+  else {
+    updateArticleVote(this.state.SingleArticle.article_id, -1)
+  this.setState((currentState) => {
+    return {voteChange: currentState.voteChange -1}
+})}
+}
 }
 
 export default SingleArticle;

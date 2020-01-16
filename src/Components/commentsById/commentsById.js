@@ -1,5 +1,6 @@
 import React from 'react';
 import '../page.css'
+import './comment.css'
 import {fetchCommentsbyArticleId, postComment} from '../api'
 import UpdateVote from './commentCard';
 
@@ -35,15 +36,17 @@ class CommentsById extends React.Component {
           <h2 className="article_Banner">  Comments for Article Id: {this.props.Article_id} </h2>
         </div>
         <div className="page_layout" id="articlelist"> 
+        <div className="comment">
         <form onSubmit={this.handleSubmit}>
-        <label> Add new Comment
+        <label> Comment:
             <input
             type="text"
               onChange={this.onChange}
               value={this.state.newComment}></input>
         </label>
-        <button disabled={this.props.username === null || this.state.newComment === null}>Submit Comment</button>
+        <button id="comment_button" disabled={this.props.username === null || this.state.newComment === null}>Submit Comment</button>
         </form>
+        </div>
         </div>
         <div className="page_layout" id="articlelist">
            

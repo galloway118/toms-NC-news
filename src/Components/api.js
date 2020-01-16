@@ -19,8 +19,9 @@ export const fetchArticlebyId = id => {
     })
 }
 
-export const updateArticleVote = id => {
-    return axios.patch(`${baseURL}/articles/${id}`, {inc_votes: 1}).then(response => {
+export const updateArticleVote = (id,votechange)  => {
+    console.log(votechange)
+    return axios.patch(`${baseURL}/articles/${id}`, {inc_votes: votechange}).then(response => {
         return response.data.article.votes;   
     })
 }

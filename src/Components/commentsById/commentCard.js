@@ -12,8 +12,8 @@ class UpdateVote extends React.Component {
         const {errorResponse} =this.state
          if(this.state.commentDeleted){
                 return (
-                    <div className="welcome_page">
-                      <h2 className="Banner">  Comment id: {this.props.comment.comment_id} deleted</h2> 
+                    <div>
+                      <h2 className="article_Banner">  Comment id: {this.props.comment.comment_id} deleted</h2> 
                       </div>
                   )}  
             else {
@@ -31,9 +31,8 @@ class UpdateVote extends React.Component {
             Comment: {body}<br></br></p>
 </li> 
 
-        <button  disabled={this.state.voteChange === 1} value="like" onClick={this.likeComment}>Like</button>
-
-        <button disabled={this.state.voteChange === -1} value="dislike" onClick={this.likeComment}>Dislike</button>
+        <button  disabled={this.state.voteChange === 1} value="like" onClick={this.likeComment}>like</button>
+        <button disabled={this.state.voteChange === -1} value="dislike" onClick={this.likeComment}>dislike</button>
         <button  disabled={this.props.username !== this.props.comment.author} value={this.props.comment_id} onClick={this.deleteComment}>Delete Comment</button>
         </>
         )

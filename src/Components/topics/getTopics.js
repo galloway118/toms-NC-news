@@ -26,7 +26,7 @@ componentDidMount= () => {
             return <ErrorHandler errorResponse={errorResponse}/>
           };
   return (
-      <div className="topiclist">
+      <div id="topiclist">
           <p>Filter by Topic:</p>
           <ul>
               {topics.map(topic => {

@@ -8,7 +8,7 @@ const ErrorHandler = ({errorResponse}) => {
   if(!errorResponse){
     return  (
       <div>
-      <div className="welcome_page">
+      <div>
         <h2 className="Banner">  Error</h2> 
         </div>
          <div className="page_layout">
