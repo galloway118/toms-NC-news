@@ -61,7 +61,7 @@ class Articles extends React.Component {
         <button value="title" onClick={this.sort_By}>Title</button>
         </div>
         </div>
-        <div className="page_layout" id="articlelist"> 
+        <div className="page_layout"> 
             <ul >
                 {articles.map(article => {
                     const linkPath = `/Articles/${article.article_id}`

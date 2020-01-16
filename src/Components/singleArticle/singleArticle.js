@@ -52,8 +52,8 @@ render () {
           <li key={votes }>Votes: {votes} </li>
           <li key={article_id + comment_count}>Comment Count: {comment_count} </li>
         </ul> 
+        <button onClick={this.getComments}><Link to={linkPath}> View Comments</Link></button>
         <button onClick={this.addVotes}>Like Article</button>
-        <button onClick={this.getComments}><Link to={linkPath}>View Comments</Link></button>
         </div>
             </div>
     )
