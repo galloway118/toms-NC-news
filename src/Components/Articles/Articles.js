@@ -51,7 +51,7 @@ class Articles extends React.Component {
         <div className="welcome_page">
           <h2 className="article_Banner">  Articles</h2>
         </div>
-        <div className="page_layout"> 
+        <div className="sort_by_list"> 
         <Topics updateTopic={this.updateTopic}/>
         <div><p>Sort By:</p>
         <button value="created_at" onClick={this.sort_By} >Date Created</button> 

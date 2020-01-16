@@ -1,5 +1,5 @@
 .Banner  {
-  margin-top: 7%;
+  margin-top: 8%;
     width: 100%;
     height: 100%;
     padding-top: 1%;
@@ -63,6 +63,7 @@
 .page_layout li {
   width: 90%;
   padding: 5% 5%;
+  align-content: center;
   box-shadow: bisque;
   text-decoration: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -70,16 +71,128 @@
   margin: 1% 1%;
   }
 
-  #topiclist{
-    background-color: none;
-    box-shadow: none;
-    display: inline-flex;
-    }
+  .sort_by_list {
+    margin-top: 1%;
+    margin-left: 25%;
+    color: #0c1529;
+    width: 50%;
+    height: 100%;
+    border: 5px #0c1529 double;
+    background-color: rgb(240, 244, 247);
+    text-align: center;
+    font-weight: 700;
+    padding-bottom: 2%;
+    font-size: 18px ;
+  }
+
+  .sort_by_list button {
+    font-size: 18px;
+    background-color: #0c1529;
+    color: rgb(240, 244, 247);
+    padding: 1% 3%;
+    font-weight: bold;
+  }
+ 
   
-    #topiclist ul {
+    .topiclist ul {
       list-style: none;
-      display: inline-flex;
+      display: flex;
+      padding-left:20%;
+     
     }
+
+    .topiclist  {
+      font-size: 18px;
+      background-color: #0c1529;
+      color: rgb(240, 244, 247);
+      padding: 1% 3%;
+      font-weight: bold;
+      flex-direction: row;
+    }
+    .topiclist button {
+      font-size: 20px;
+      background-color: rgb(240, 244, 247);
+      color: #0c1529;
+      padding: 4% 7%;
+      border: 5px #0c1529 solid;
+    }
+
+    #container {
+      
+      width: 100%;
+      overflow: hidden;
+      
+      background:rgb(240, 244, 247);
+      font-size: 8px;
+      text-align: center;
+     }
+
+     .photonbanner img {
+       height: 233px;
+       width: 350px;
+
+     }
+
+     .photobanner {
+      height: 233px;
+      width: 3550px;
+      margin-bottom: 80px;
+     }
+
+     .first {
+      -webkit-animation: bannermove 60s linear infinite;
+         -moz-animation: bannermove 60s linear infinite;
+          -ms-animation: bannermove 60s linear infinite;
+           -o-animation: bannermove 60s linear infinite;
+              animation: bannermove 60s linear infinite;
+     }
+
+      
+@keyframes bannermove {
+  0% {
+     margin-left: 0px;
+  }
+  100% {
+     margin-left: -2125px;
+  }
+  
+ }
+  
+ @-moz-keyframes bannermove {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: -2125px;
+  }
+ }
+  
+ @-webkit-keyframes bannermove {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: -2125px;
+  }
+ }
+
+ @-ms-keyframes bannermove {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: -2125px;
+  }
+ }
+  
+ @-o-keyframes bannermove {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: -2125px;
+  }
+ }
 
     @media (max-width: 760px) {
     .Banner {
