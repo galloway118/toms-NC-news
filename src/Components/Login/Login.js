@@ -39,7 +39,6 @@ class Login extends React.Component {
         this.setState({validUser: true})
       })
     }
-
     onChange = (event) => {
       this.setState({userInput: event.target.value})
     }

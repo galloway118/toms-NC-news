@@ -11,7 +11,6 @@ import SingleArticle from './Components/singleArticle/singleArticle'
 import CommentsById from './Components/commentsById/commentsById'
 import ErrorHandler from './Components/Error/errorPage';
 
-
 class App extends React.Component {
   state = { 
     sideBarOpen: false,
@@ -29,7 +28,6 @@ class App extends React.Component {
         <Navbar navBarClickHandler={this.sideBarHandler} username={this.state.username} handleLogOut={this.handleLogOut} />
         {sideBar}
         </div>
-        
       <Router className="box">  
       <WelcomePage path="/"/> 
       <Articles path="/Articles"/>

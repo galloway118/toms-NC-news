@@ -1,7 +1,6 @@
 import React from 'react';
 import '../page.css'
 
-
 const  WelcomePage = () =>{
   return (
     <div>
@@ -22,9 +21,6 @@ const  WelcomePage = () =>{
         <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0Sm3tlfsMkU0s5VrrTPrVBx_PnPn9qlCe7yzwiAoL60CO7qQnxQ&s" alt="coding" width="350px" height="233px"></img>
         <img  src="https://www.bgosoftware.com/blog/wp-content/uploads/2016/03/insidepost_coding.jpg" alt="code"width="350px" height="233px"></img>
         <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5w3VFhwiDrag06TdeFHTRb8mt_WVGKpzAKblSmZBJxenjQYtl&s" alt="basketball" width="350px" height="233px"></img>
-        
-      
-      
         </div>
         </div>
         </div>

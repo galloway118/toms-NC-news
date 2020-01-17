@@ -1,8 +1,4 @@
 import React from 'react';
-// import '../../welcome_page.css';
-// import Banner from '../../Error_components/ContactError';
-
-
 
 const ErrorHandler = ({errorResponse}) => {
   if(!errorResponse){
@@ -17,10 +13,7 @@ const ErrorHandler = ({errorResponse}) => {
          Error Message: BAD REQUEST</p>
          </div>
          </div>
-    )
-  };
-  
-  console.log(errorResponse)
+    )};
         return (
           <div>
           <div className="welcome_page">
@@ -31,10 +24,7 @@ const ErrorHandler = ({errorResponse}) => {
              <br></br>
              Error Message: {errorResponse.msg}</p>
              </div>
-             
              </div>
-        )
-      } 
-
+        )} 
 
 export default ErrorHandler;

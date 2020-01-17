@@ -32,7 +32,7 @@ render () {
     if(this.state.isLoading) {
       return (
         <div>
-          <h2 className="Banner">  LOADING...</h2> 
+          <h2 className="login_Banner">  LOADING...</h2> 
           </div>
       )} else {
         if(errorResponse) {
@@ -58,12 +58,11 @@ render () {
         <button  disabled={this.state.voteChange === -1} value="dislike" onClick={this.addVotes}>dislike</button>
         </div>
             </div>
-    )
-}
+    )}
         }
 }
+
 addVotes = (event) => {
-  console.dir(event.target.value)
   if(event.target.value === 'like'){
     updateArticleVote(this.state.SingleArticle.article_id, 1)
      this.setState(currentState => {   

@@ -27,7 +27,7 @@ class CommentsById extends React.Component {
     if(this.state.isLoading) {
         return (
           <div className="welcome_page">
-            <h2 className="Banner">  LOADING...</h2> 
+            <h2 className="login_Banner">  LOADING...</h2> 
             </div>
         )} else {
     return (

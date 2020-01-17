@@ -7,7 +7,6 @@ export const fetchAllArticles = (sort_by, topic) => {
         params:{
             sort_by: sort_by,
             topic: topic
-    
     }}).then(({data}) => {
         return data.articles;
     });
@@ -15,12 +14,10 @@ export const fetchAllArticles = (sort_by, topic) => {
 
 export const fetchArticlebyId = id => {
     return axios.get(`${baseURL}/articles/${id}`).then(response => {
-        return response.data.article
-    })
+        return response.data.article })
 }
 
 export const updateArticleVote = (id,votechange)  => {
-    console.log(votechange)
     return axios.patch(`${baseURL}/articles/${id}`, {inc_votes: votechange}).then(response => {
         return response.data.article.votes;   
     })
