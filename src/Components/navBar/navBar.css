@@ -12,6 +12,7 @@
 
 .navbar_links {
     display: flex;
+    font-size: 10px;
     padding: 0 10px;
     text-align: center;
     align-items: center;

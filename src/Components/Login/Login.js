@@ -12,7 +12,7 @@ class Login extends React.Component {
     return (
         <div>
         <div className="welcome_page">
-          <h2 className="Banner">  Log In </h2>
+          <h2 className="login_Banner">  Log In </h2>
         </div>
         <div className="page_layout">
           <form  onSubmit={this.handleSubmit}>
