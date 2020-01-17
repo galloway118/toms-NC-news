@@ -13,7 +13,7 @@ class UpdateVote extends React.Component {
          if(this.state.commentDeleted){
                 return (
                     <div>
-                      <h2 className="article_Banner">  Comment id: {this.props.comment.comment_id} deleted</h2> 
+                      <h2 id="delete_Banner">  Comment id: {this.props.comment.comment_id} deleted</h2> 
                       </div>
                   )}  
             else {

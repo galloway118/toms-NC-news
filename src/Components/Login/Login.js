@@ -35,7 +35,8 @@ class Login extends React.Component {
       event.preventDefault();
       const {userInput} = this.state
       checkUser(userInput).then(username => {
-        this.props.updateUser(username)
+        this.props.updateUser(username);
+        this.setState({validUser: true})
       })
     }
 

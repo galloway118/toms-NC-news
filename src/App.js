@@ -20,7 +20,7 @@ class App extends React.Component {
   render() {
     let sideBar;
     if(this.state.sideBarOpen) {
-      sideBar = <SideBar  username={this.state.username} handleLogOut={this.handleLogOut}/>;
+      sideBar = <SideBar navBarClickHandler={this.sideBarHandler} username={this.state.username} handleLogOut={this.handleLogOut}/>;
     }
   return (
     <div className="App">

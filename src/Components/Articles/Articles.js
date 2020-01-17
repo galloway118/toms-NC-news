@@ -39,7 +39,7 @@ class Articles extends React.Component {
     const {articles, errorResponse} = this.state;
     if(this.state.isLoading) {
         return (
-          <div className="welcome_page">
+          <div>
             <h2 className="Banner">  LOADING...</h2> 
             </div>
         )} else {
