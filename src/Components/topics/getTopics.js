@@ -29,6 +29,11 @@ class Topics extends React.Component {
         <div id="topiclist">
           <p>Filter by Topic:</p>
           <ul>
+            <li>
+              <button value={''} onClick={this.filterByTopic}>
+                All
+              </button>
+            </li>
             {topics.map(topic => {
               return (
                 <li key={topic.slug}>

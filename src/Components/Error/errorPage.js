@@ -11,7 +11,7 @@ const ErrorHandler = ({ errorResponse }) => {
           <p>
             Status Code: 404
             <br></br>
-            Error Message: BAD REQUEST
+            Error Message: NOT FOUND
           </p>
         </div>
       </div>

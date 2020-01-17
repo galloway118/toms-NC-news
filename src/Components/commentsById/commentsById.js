@@ -59,8 +59,7 @@ class CommentsById extends React.Component {
                 <button
                   id="comment_button"
                   disabled={
-                    this.props.username === null ||
-                    this.state.newComment === null
+                    this.props.username === null || this.state.newComment === ''
                   }
                 >
                   Submit Comment

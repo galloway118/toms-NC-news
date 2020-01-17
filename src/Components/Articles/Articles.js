@@ -4,31 +4,19 @@ import { fetchAllArticles } from '../api';
 import { Link } from '@reach/router';
 import Topics from '../topics/getTopics';
 import ErrorHandler from '../Error/errorPage';
+import SortBy from '../sort_by/sort_by';
 
 class Articles extends React.Component {
   state = {
     articles: [],
     sort_by: 'created_at',
-    singleTopic: 'football',
+    singleTopic: '',
     isLoading: true,
     errorResponse: null
   };
 
-  getAllArticles = () => {
-    fetchAllArticles(this.state.sort_by, this.state.singleTopic)
-      .then(articles => {
-        this.setState({ articles: articles, isLoading: false });
-      })
-      .catch(err => {
-        console.log(err);
-        this.setState({
-          errorResponse: {
-            status: err.response.status,
-            msg: err.response.data.msg
-          },
-          isLoading: false
-        });
-      });
+  componentDidMount = () => {
+    this.getAllArticles();
   };
 
   componentDidUpdate = (prevProps, prevState) => {
@@ -40,8 +28,8 @@ class Articles extends React.Component {
   };
 
   render() {
-    const { articles, errorResponse } = this.state;
-    if (this.state.isLoading) {
+    const { articles, errorResponse, isLoading } = this.state;
+    if (isLoading) {
       return (
         <div>
           <h2 className="login_Banner"> LOADING...</h2>
@@ -58,24 +46,7 @@ class Articles extends React.Component {
             </div>
             <div className="sort_by_list">
               <Topics updateTopic={this.updateTopic} />
-              <div>
-                <p>Sort By:</p>
-                <button value="created_at" onClick={this.sort_By}>
-                  Date Created
-                </button>
-                <button value="comment_count" onClick={this.sort_By}>
-                  Comment Count
-                </button>
-                <button value="votes" onClick={this.sort_By}>
-                  Votes
-                </button>
-                <button value="author" onClick={this.sort_By}>
-                  Author
-                </button>
-                <button value="title" onClick={this.sort_By}>
-                  Title
-                </button>
-              </div>
+              <SortBy sort_By={this.sort_By} />
             </div>
             <div className="page_layout">
               <ul>
@@ -98,16 +69,30 @@ class Articles extends React.Component {
       }
     }
   }
+
+  getAllArticles = () => {
+    fetchAllArticles(this.state.sort_by, this.state.singleTopic)
+      .then(articles => {
+        this.setState({ articles: articles, isLoading: false });
+      })
+      .catch(err => {
+        console.log(err);
+        this.setState({
+          errorResponse: {
+            status: err.response.status,
+            msg: err.response.data.msg
+          },
+          isLoading: false
+        });
+      });
+  };
+
   sort_By = event => {
     return this.setState({ sort_by: event.target.value });
   };
 
   updateTopic = updatedTopic => {
     return this.setState({ singleTopic: updatedTopic });
-  };
-
-  componentDidMount = () => {
-    this.getAllArticles();
   };
 }
 
