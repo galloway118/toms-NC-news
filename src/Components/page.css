@@ -1,32 +1,32 @@
-.Banner  {
+.Banner {
   margin-top: 8%;
-    width: 100%;
-    height: 100%;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    border: 5px rgb(240, 244, 247) double;
-    text-align: center;
-    font-family: 'Trebuchet MS', Arial, sans-serif;
-    background-color: #0c1529;
-    color: rgb(240, 244, 247);
-    align-items: center;
-    font-size: calc(8px + 2vmin);
-  }
+  width: 100%;
+  height: 100%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  border: 5px rgb(240, 244, 247) double;
+  text-align: center;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  background-color: #0c1529;
+  color: rgb(240, 244, 247);
+  align-items: center;
+  font-size: calc(8px + 2vmin);
+}
 
-  .login_Banner{
-    margin-top: 20%;
-    width: 100%;
-    height: 100%;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    border: 5px rgb(240, 244, 247) double;
-    text-align: center;
-    font-family: 'Trebuchet MS', Arial, sans-serif;
-    background-color: #0c1529;
-    color: rgb(240, 244, 247);
-    align-items: center;
-    font-size: calc(8px + 2vmin);
-  }
+.login_Banner {
+  margin-top: 20%;
+  width: 100%;
+  height: 100%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  border: 5px rgb(240, 244, 247) double;
+  text-align: center;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  background-color: #0c1529;
+  color: rgb(240, 244, 247);
+  align-items: center;
+  font-size: calc(8px + 2vmin);
+}
 
 .article_Banner {
   margin-top: 2%;
@@ -56,52 +56,46 @@
   background-color: #0c1529;
   color: rgb(240, 244, 247);
   font-size: calc(8px + 2vmin);
-
 }
-
-
 
 .page_layout {
   margin-top: 1%;
-    width: 100%;
-    height: 100%;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    border: 5px #0c1529 double;        
-    text-align: center;
-    font-family: 'Trebuchet MS', Arial, sans-serif;
-    font-weight: 600;
-    background-color: rgb(240, 244, 247);
-    color: #0c1529;
-    flex-direction: column;
-    align-items: center;
-    
-    font-size: calc(2px + 2vmin);
-    line-height: 2;
-    text-align:center;
-    
-    
+  width: 100%;
+  height: 100%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  border: 5px #0c1529 double;
+  text-align: center;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  font-weight: 600;
+  background-color: rgb(240, 244, 247);
+  color: #0c1529;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: calc(2px + 2vmin);
+  line-height: 2;
+  text-align: center;
 }
 
 .page_layout a {
-  color:#0c1529;
-  text-decoration: none; 
-  text-align: center; 
+  color: #0c1529;
+  text-decoration: none;
+  text-align: center;
 }
- 
-.page_layout button  {
+
+.page_layout button {
   font-size: 10px;
-    background-color: #0c1529;
-    color: rgb(240, 244, 247);
-    padding: 1% 3%;
-    font-weight: bold;
-    
+  background-color: #0c1529;
+  color: rgb(240, 244, 247);
+  padding: 1% 3%;
+  font-weight: bold;
 }
 
 #articlelist a {
   color: rgb(240, 244, 247);
-  text-decoration: none; 
-  text-align: center; 
+  text-decoration: none;
+  text-align: center;
   align-content: center;
 }
 ul {
@@ -120,133 +114,125 @@ ul {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 1% 1%;
   margin: 1% 1%;
-  }
+}
 
-  .sort_by_list {
-    margin-top: 1%;
-    color: #0c1529;
-    width: 100%;
-    height: 100%;
-    border: 5px #0c1529 double;
-    background-color: rgb(240, 244, 247);
-    text-align: center;
-    font-weight: 700;
-    padding-bottom: 2%;
-    font-size: 10px ;
-  }
+.sort_by_list {
+  margin-top: 1%;
+  color: #0c1529;
+  width: 100%;
+  height: 100%;
+  border: 5px #0c1529 double;
+  background-color: rgb(240, 244, 247);
+  text-align: center;
+  font-weight: 700;
+  padding-bottom: 2%;
+  font-size: 10px;
+}
 
-  .sort_by_list button {
-    font-size: 10px;
-    background-color: #0c1529;
-    color: rgb(240, 244, 247);
-    padding: 1% 3%;
-    font-weight: bold;
-  }
- 
-  
-    #topiclist ul {
-      align-content: center;
-      display: inline-flex;
-    }
+.sort_by_list button {
+  font-size: 10px;
+  background-color: #0c1529;
+  color: rgb(240, 244, 247);
+  padding: 1% 3%;
+  font-weight: bold;
+}
 
-    #topiclist  {
-    
-      font-size: 10px;
-      background-color: #0c1529;
-      color: rgb(240, 244, 247);
-      padding: 1% 3%;
-      font-weight: bold;
-      align-content: center;  
-    }
+#topiclist ul {
+  align-content: center;
+  display: inline-flex;
+}
 
-    #topiclist button {
-      font-size: 10px;
-      background-color: rgb(240, 244, 247);
-      color: #0c1529;
-      padding: 4% 7%;
-      border: 5px #0c1529 solid;
-      
-    }
+#topiclist {
+  font-size: 10px;
+  background-color: #0c1529;
+  color: rgb(240, 244, 247);
+  padding: 1% 3%;
+  font-weight: bold;
+  align-content: center;
+}
 
-    #container {
-      
-      width: 100%;
-      overflow: hidden;
-      background:rgb(240, 244, 247);
-      font-size: 8px;
-      text-align: center;
-     }
+#topiclist button {
+  font-size: 10px;
+  background-color: rgb(240, 244, 247);
+  color: #0c1529;
+  padding: 4% 7%;
+  border: 5px #0c1529 solid;
+}
 
-     .photonbanner img {
-       height: 233px;
-       width: 350px;
+#container {
+  width: 100%;
+  overflow: hidden;
+  background: rgb(240, 244, 247);
+  font-size: 8px;
+  text-align: center;
+}
 
-     }
+.photonbanner img {
+  height: 233px;
+  width: 350px;
+}
 
-     .photobanner {
-      height: 233px;
-      width: 3550px;
-      margin-bottom: 80px;
-     }
+.photobanner {
+  height: 233px;
+  width: 3550px;
+  margin-bottom: 80px;
+}
 
-     .first {
-      -webkit-animation: bannermove 30s linear infinite;
-         -moz-animation: bannermove 30s linear infinite;
-          -ms-animation: bannermove 30s linear infinite;
-           -o-animation: bannermove 30s linear infinite;
-              animation: bannermove 30s linear infinite;
-     }
+.first {
+  -webkit-animation: bannermove 30s linear infinite;
+  -moz-animation: bannermove 30s linear infinite;
+  -ms-animation: bannermove 30s linear infinite;
+  -o-animation: bannermove 30s linear infinite;
+  animation: bannermove 30s linear infinite;
+}
 
-      
 @keyframes bannermove {
   0% {
-     margin-left: -1000px;
-  }
-  100% {
-     margin-left: -2125px;
-  }
-  
- }
-  
- @-moz-keyframes bannermove {
-  0% {
     margin-left: -1000px;
   }
   100% {
     margin-left: -2125px;
   }
- }
-  
- @-webkit-keyframes bannermove {
-  0% {
-    margin-left: -1000px;
-  }
-  100% {
-    margin-left: -2125px;
-  }
- }
+}
 
- @-ms-keyframes bannermove {
+@-moz-keyframes bannermove {
   0% {
     margin-left: -1000px;
   }
   100% {
     margin-left: -2125px;
   }
- }
-  
- @-o-keyframes bannermove {
-  0% {
-    margin-left: -1000px;
-  }
-  100% {
-    margin-left: -2125px;
-  }
- }
+}
 
-    @media (max-width: 760px) {
-    .Banner {
+@-webkit-keyframes bannermove {
+  0% {
+    margin-left: -1000px;
+  }
+  100% {
+    margin-left: -2125px;
+  }
+}
+
+@-ms-keyframes bannermove {
+  0% {
+    margin-left: -1000px;
+  }
+  100% {
+    margin-left: -2125px;
+  }
+}
+
+@-o-keyframes bannermove {
+  0% {
+    margin-left: -1000px;
+  }
+  100% {
+    margin-left: -2125px;
+  }
+}
+
+@media (max-width: 760px) {
+  .Banner {
     margin-top: 15%;
-  
-    }
   }
+}

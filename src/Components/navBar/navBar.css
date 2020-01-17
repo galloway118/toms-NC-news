@@ -1,77 +1,76 @@
 .navbar {
-    grid-area: 1 / 1 / span 1 / span 3;
-    width: 100%;
-    border: 2px rgb(240, 244, 247) solid;
-    background-color: #0c1529;
-    font-family: 'Trebuchet MS', Arial, sans-serif;
-    font-weight: bold;
-    color: rgb(240, 244, 247);
-    z-index: 400;
-
+  grid-area: 1 / 1 / span 1 / span 3;
+  width: 100%;
+  border: 2px rgb(240, 244, 247) solid;
+  background-color: #0c1529;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  font-weight: bold;
+  color: rgb(240, 244, 247);
+  z-index: 400;
 }
 
 .navbar_links {
-    display: flex;
-    font-size: 14px;
-    padding: 0 10px;
-    text-align: center;
-    align-items: center;
-    justify-content: center; 
+  display: flex;
+  font-size: 14px;
+  padding: 0 10px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
-.tomglogo {  
-    max-width: 5%;
-    max-height: 5%;
-    color: rgb(240, 244, 247);
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-left: 5px;
-    margin-right: 10px;
-  }
+.tomglogo {
+  max-width: 5%;
+  max-height: 5%;
+  color: rgb(240, 244, 247);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 10px;
+}
 
 .spacer {
-    flex: 1;
+  flex: 1;
 }
 
 .navbar_items {
-    color: rgb(240, 244, 247);
-    text-decoration: none;
-    padding-top: 1%;
-    padding-bottom: 1%;
+  color: rgb(240, 244, 247);
+  text-decoration: none;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 .navbar_items ul {
-list-style: none;
-display: inline;
-margin: 0;
-padding: 0;
+  list-style: none;
+  display: inline;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar_items li {
-    padding: 0 20px;
-    display: inline;   
+  padding: 0 20px;
+  display: inline;
 }
 
 .navbar_items a {
-    text-decoration: none;
-    color: rgb(240, 244, 247);
+  text-decoration: none;
+  color: rgb(240, 244, 247);
 }
 
 .navbar_items a:hover,
 .navbar_items a:active {
- color:rgb(54, 58, 61);
- text-decoration: none;
+  color: rgb(54, 58, 61);
+  text-decoration: none;
 }
 
-@media (max-width: 760px){
-    .navbar_items{
-        display:none;
-    }
+@media (max-width: 760px) {
+  .navbar_items {
+    display: none;
+  }
 }
 
-@media (min-width: 760px){
-    .navbar_toggle{
-        display:none;
-    }
+@media (min-width: 760px) {
+  .navbar_toggle {
+    display: none;
+  }
 }
