@@ -1,10 +1,12 @@
 import React from 'react';
-import '../page.css';
-import { fetchAllArticles } from '../api';
-import { Link } from '@reach/router';
-import Topics from '../topics/getTopics';
-import ErrorHandler from '../Error/errorPage';
-import SortBy from '../sort_by/sort_by';
+import './pagelayout.css';
+
+import { fetchAllArticles } from './api';
+
+import ErrorHandler from './errorHandler';
+import Topics from './topicHandler';
+import SortBy from './sort_by_Handler';
+import ArticleCards from './articleCards';
 
 class Articles extends React.Component {
   state = {
@@ -20,9 +22,10 @@ class Articles extends React.Component {
   };
 
   componentDidUpdate = (prevProps, prevState) => {
-    if (prevState.sort_by !== this.state.sort_by) {
+    const { sort_by, singleTopic } = this.state;
+    if (prevState.sort_by !== sort_by) {
       this.getAllArticles();
-    } else if (prevState.singleTopic !== this.state.singleTopic) {
+    } else if (prevState.singleTopic !== singleTopic) {
       this.getAllArticles();
     }
   };
@@ -32,7 +35,7 @@ class Articles extends React.Component {
     if (isLoading) {
       return (
         <div>
-          <h2 className="login_Banner"> LOADING...</h2>
+          <h2 className="article_Banner"> LOADING...</h2>
         </div>
       );
     } else {
@@ -41,28 +44,11 @@ class Articles extends React.Component {
       } else {
         return (
           <div>
-            <div className="welcome_page">
-              <h2 className="article_Banner"> Articles</h2>
-            </div>
+            <h2 className="article_Banner"> Articles</h2>
             <div className="sort_by_list">
               <Topics updateTopic={this.updateTopic} />
               <SortBy sort_By={this.sort_By} />
-            </div>
-            <div className="page_layout">
-              <ul>
-                {articles.map(article => {
-                  const linkPath = `/Articles/${article.article_id}`;
-                  return (
-                    <li key={article.article_id}>
-                      <Link to={linkPath}>
-                        <p>
-                          Article: {article.title} <br></br>By: {article.author}
-                        </p>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
+              <ArticleCards articles={articles} />
             </div>
           </div>
         );
@@ -71,12 +57,12 @@ class Articles extends React.Component {
   }
 
   getAllArticles = () => {
-    fetchAllArticles(this.state.sort_by, this.state.singleTopic)
+    const { sort_by, singleTopic } = this.state;
+    fetchAllArticles(sort_by, singleTopic)
       .then(articles => {
         this.setState({ articles: articles, isLoading: false });
       })
       .catch(err => {
-        console.log(err);
         this.setState({
           errorResponse: {
             status: err.response.status,

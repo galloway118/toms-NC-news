@@ -21,11 +21,12 @@ export const fetchArticlebyId = id => {
   });
 };
 
-export const updateArticleVote = (id, votechange) => {
+export const updateVote = (id, votechange, filt) => {
   return axios
-    .patch(`${baseURL}/articles/${id}`, { inc_votes: votechange })
+    .patch(`${baseURL}/${filt}/${id}`, { inc_votes: votechange })
     .then(response => {
-      return response.data.article.votes;
+      console.dir(response);
+      return response.data;
     });
 };
 
@@ -33,14 +34,6 @@ export const fetchCommentsbyArticleId = id => {
   return axios.get(`${baseURL}/articles/${id}/comments`).then(response => {
     return response.data.comments;
   });
-};
-
-export const updateCommentVote = (id, votechange) => {
-  return axios
-    .patch(`${baseURL}/comments/${id}`, { inc_votes: votechange })
-    .then(response => {
-      return response.data.comment;
-    });
 };
 
 export const fetchAllTopics = () => {

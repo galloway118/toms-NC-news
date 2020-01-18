@@ -1,15 +1,17 @@
 import React from 'react';
 import './App.css';
-import { Router } from '@reach/router';
+
+import Header from './Components/fixedheader/header';
 import Navbar from './Components/navBar/navBar';
 import SideBar from './Components/sideBar/sideBar';
-import WelcomePage from './Components/welcomePage/welcomePage';
-import Articles from './Components/Articles/Articles';
-import Login from './Components/Login/Login';
-import Header from './Components/header/header';
-import SingleArticle from './Components/singleArticle/singleArticle';
-import CommentsById from './Components/commentsById/commentsById';
-import ErrorHandler from './Components/Error/errorPage';
+
+import { Router } from '@reach/router';
+import WelcomePage from './Components/welcomePage';
+import Articles from './Components/ArticlesPage';
+import SingleArticle from './Components/singleArticlePage';
+import Login from './Components/LoginPage';
+import CommentsById from './Components/articleCommentsPage';
+import ErrorHandler from './Components/errorHandler';
 
 class App extends React.Component {
   state = {

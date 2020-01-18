@@ -1,6 +1,7 @@
 import React from 'react';
-import '../page.css';
-import { checkUser } from '../api';
+import './pagelayout.css';
+
+import { checkUser } from './api';
 
 class Login extends React.Component {
   state = {
@@ -8,11 +9,10 @@ class Login extends React.Component {
     validUser: null
   };
   render() {
+    const { userInput } = this.state;
     return (
       <div>
-        <div className="welcome_page">
-          <h2 className="login_Banner"> Log In </h2>
-        </div>
+        <h2 className="standard_Banner"> Log In </h2>
         <div className="page_layout">
           <form onSubmit={this.handleSubmit}>
             <h3> Enter login details </h3>
@@ -22,7 +22,7 @@ class Login extends React.Component {
                 placeholder="tickle122"
                 type="text"
                 onChange={this.onChange}
-                value={this.state.userInput}
+                value={userInput}
               ></input>
             </label>
             <button>Login</button>
@@ -35,9 +35,10 @@ class Login extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    const { updateUser } = this.props;
     const { userInput } = this.state;
     checkUser(userInput).then(username => {
-      this.props.updateUser(username);
+      updateUser(username);
       this.setState({ validUser: true });
     });
   };

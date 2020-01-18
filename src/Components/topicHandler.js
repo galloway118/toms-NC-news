@@ -1,7 +1,9 @@
 import React from 'react';
-import { fetchAllTopics } from '../api';
-import '../page.css';
-import ErrorHandler from '../Error/errorPage';
+import './pagelayout.css';
+
+import { fetchAllTopics } from './api';
+
+import ErrorHandler from './errorHandler';
 
 class Topics extends React.Component {
   state = {
@@ -13,11 +15,12 @@ class Topics extends React.Component {
   componentDidMount = () => {
     this.getAllTopics();
   };
+
   render() {
-    const { topics, errorResponse } = this.state;
-    if (this.state.isLoading) {
+    const { topics, errorResponse, isLoading } = this.state;
+    if (isLoading) {
       return (
-        <div className="welcome_page">
+        <div>
           <h2 className="login_Banner"> LOADING...</h2>
         </div>
       );

@@ -1,9 +1,9 @@
 import React from 'react';
 import './sideBarButton.css';
 
-const Sidebutton = props => {
+const Sidebutton = ({ click }) => {
   return (
-    <button className="sidebarbutton" onClick={props.click}>
+    <button className="sidebarbutton" onClick={click}>
       <div className="buttonline"></div>
       <div className="buttonline"></div>
       <div className="buttonline"></div>

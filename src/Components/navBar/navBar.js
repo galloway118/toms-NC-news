@@ -1,7 +1,9 @@
 import React from 'react';
-import Sidebutton from '../sideBar/sideBarButton';
 import './navBar.css';
+
 import { Link } from '@reach/router';
+
+import Sidebutton from '../sideBar/sideBarButton';
 
 const Navbar = ({ navBarClickHandler, username, handleLogOut }) => {
   return (
