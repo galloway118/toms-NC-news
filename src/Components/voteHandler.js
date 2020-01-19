@@ -13,7 +13,7 @@ const Voting = ({ id, filt, voteChange, updateVotes }) => {
   };
 
   return (
-    <div>
+    <>
       <button disabled={voteChange === 1} value="like" onClick={likeComment}>
         like
       </button>
@@ -25,7 +25,7 @@ const Voting = ({ id, filt, voteChange, updateVotes }) => {
       >
         dislike
       </button>
-    </div>
+    </>
   );
 };
 export default Voting;

@@ -5,6 +5,7 @@ import { Link } from '@reach/router';
 
 import ErrorHandler from './errorHandler';
 import Voting from './voteHandler';
+import { UpdateDate } from './updateDateHandler';
 
 class SingleArticle extends Component {
   state = {
@@ -53,7 +54,9 @@ class SingleArticle extends Component {
                 <li key={topic}>Topic: {topic} </li>
                 <li key={author}>Author: {author} </li>
                 <li key={body}>Article: {body} </li>
-                <li key={created_at}>Created At: {created_at} </li>
+                <li key={created_at}>
+                  Posted on: <UpdateDate created_at={created_at} />{' '}
+                </li>
                 <li key={votes}>Votes: {votes + voteChange} </li>
                 <li key={article_id + comment_count}>
                   Comment Count: {comment_count}{' '}

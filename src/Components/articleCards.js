@@ -5,7 +5,7 @@ import { Link } from '@reach/router';
 
 const ArticleCards = ({ articles }) => {
   return (
-    <div className="page_layout">
+    <div className="cards">
       <ul>
         {articles.map(article => {
           const linkPath = `/Articles/${article.article_id}`;

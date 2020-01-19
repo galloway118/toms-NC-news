@@ -4,6 +4,7 @@ import { removeComment } from './api';
 
 import ErrorHandler from './errorHandler';
 import Voting from './voteHandler';
+import { UpdateDate } from './updateDateHandler';
 
 class UpdateVote extends React.Component {
   state = {
@@ -29,14 +30,14 @@ class UpdateVote extends React.Component {
           <>
             <li key={comment_id}>
               <p>
-                Comment Id: {comment_id} <br></br>
+                {/* Comment Id: {comment_id} <br></br> */}
+                Comment: {body}
+                <br></br>
                 Votes: {votes + voteChange}
                 <br></br>
-                Created At: {created_at}
+                Date posted: <UpdateDate created_at={created_at} />
                 <br></br>
                 Author: {author}
-                <br></br>
-                Comment: {body}
                 <br></br>
               </p>
             </li>

@@ -44,7 +44,7 @@ class Articles extends React.Component {
       } else {
         return (
           <div>
-            <h2 className="article_Banner"> Articles</h2>
+            <h2 className="article_Banner"> All articles</h2>
             <div className="sort_by_list">
               <Topics updateTopic={this.updateTopic} />
               <SortBy sort_By={this.sort_By} />

@@ -22,7 +22,7 @@ class CommentsById extends React.Component {
       </div>
     ) : (
       <div>
-        <h2 className="article_Banner">
+        <h2 className="standard_Banner">
           {' '}
           Comments for Article Id: {Article_id}{' '}
         </h2>
