@@ -20,11 +20,12 @@ class App extends React.Component {
   };
   render() {
     let sideBar;
-    if (this.state.sideBarOpen) {
+    const { sideBarOpen, username } = this.state;
+    if (sideBarOpen) {
       sideBar = (
         <SideBar
           navBarClickHandler={this.sideBarHandler}
-          username={this.state.username}
+          username={username}
           handleLogOut={this.handleLogOut}
         />
       );
@@ -35,7 +36,7 @@ class App extends React.Component {
           <Header className="header" />
           <Navbar
             navBarClickHandler={this.sideBarHandler}
-            username={this.state.username}
+            username={username}
             handleLogOut={this.handleLogOut}
           />
           {sideBar}
@@ -43,17 +44,14 @@ class App extends React.Component {
         <Router className="box">
           <WelcomePage path="/" />
           <Articles path="/Articles" />
-          <SingleArticle
-            path="/Articles/:Article_id"
-            username={this.state.username}
-          />
+          <SingleArticle path="/Articles/:Article_id" username={username} />
           <CommentsById
             path="/Articles/:Article_id/comments"
-            username={this.state.username}
+            username={username}
           />
           <Login
             path="/Login"
-            username={this.state.username}
+            username={username}
             updateUser={this.updateUser}
           />
           <ErrorHandler default />
