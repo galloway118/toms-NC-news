@@ -20,7 +20,7 @@ class Login extends React.Component {
       </Router>
     ) : (
       <div>
-        <h2 className="standard_Banner"> Log In </h2>
+        <h2 className="Banner"> Log In </h2>
         <div className="page_layout">
           <form onSubmit={this.handleSubmit}>
             <h3> Enter login details </h3>
