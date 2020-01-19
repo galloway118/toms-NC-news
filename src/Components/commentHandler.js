@@ -30,7 +30,6 @@ class UpdateVote extends React.Component {
           <>
             <li key={comment_id}>
               <p>
-                {/* Comment Id: {comment_id} <br></br> */}
                 Comment: {body}
                 <br></br>
                 Votes: {votes + voteChange}
