@@ -13,6 +13,9 @@ const SideBar = ({ navBarClickHandler, username, handleLogOut }) => {
         <li onClick={navBarClickHandler}>
           <Link to="/Articles">Articles</Link>
         </li>
+        <li onClick={navBarClickHandler}>
+          <Link to="/Users">Users</Link>
+        </li>
         {username === null ? (
           <li onClick={navBarClickHandler}>
             <Link to="/Login">Log In</Link>

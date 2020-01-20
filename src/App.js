@@ -8,6 +8,7 @@ import SideBar from './Components/sideBar/sideBar';
 import { Router } from '@reach/router';
 import WelcomePage from './Components/welcomePage';
 import Articles from './Components/ArticlesPage';
+import Users from './Components/usersPage';
 import SingleArticle from './Components/singleArticlePage';
 import Login from './Components/LoginPage';
 import CommentsById from './Components/articleCommentsPage';
@@ -44,6 +45,7 @@ class App extends React.Component {
         <Router className="box">
           <WelcomePage path="/" />
           <Articles path="/Articles" />
+          <Users path="/Users" />
           <SingleArticle path="/Articles/:Article_id" username={username} />
           <CommentsById
             path="/Articles/:Article_id/comments"

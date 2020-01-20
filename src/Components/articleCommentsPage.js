@@ -13,6 +13,10 @@ class CommentsById extends React.Component {
     err: null
   };
 
+  componentDidMount = () => {
+    this.getComments();
+  };
+
   render() {
     const { comments, newComment, isLoading } = this.state;
     const { Article_id, username } = this.props;
@@ -67,10 +71,6 @@ class CommentsById extends React.Component {
           isLoading: false
         });
       });
-  };
-
-  componentDidMount = () => {
-    this.getComments();
   };
 
   onChange = event => {

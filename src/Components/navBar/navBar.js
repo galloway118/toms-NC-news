@@ -30,6 +30,9 @@ const Navbar = ({ navBarClickHandler, username, handleLogOut }) => {
             <li>
               <Link to="/Articles">Articles</Link>
             </li>
+            <li onClick={navBarClickHandler}>
+              <Link to="/Users">Users</Link>
+            </li>
             {username === null ? (
               <li>
                 <Link to="/Login">Log In</Link>

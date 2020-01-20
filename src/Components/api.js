@@ -62,3 +62,9 @@ export const postComment = (id, username, newComment) => {
       return response.data.comment;
     });
 };
+
+export const fetchAllUsers = () => {
+  return axios.get(`${baseURL}/users`).then(response => {
+    return response.data.users;
+  });
+};
