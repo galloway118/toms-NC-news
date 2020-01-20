@@ -3,7 +3,7 @@ import './pagelayout.css';
 
 import { fetchCommentsbyArticleId, postComment } from './api';
 
-import UpdateVote from './commentHandler';
+import CommentCards from './commentCards';
 
 class CommentsById extends React.Component {
   state = {
@@ -47,19 +47,7 @@ class CommentsById extends React.Component {
             </form>
           </div>
         </div>
-        <div className="page_layout" id="articlelist">
-          <ul>
-            {comments.map(comment => {
-              return (
-                <UpdateVote
-                  key={comment.comment_id}
-                  comment={comment}
-                  username={username}
-                />
-              );
-            })}{' '}
-          </ul>{' '}
-        </div>
+        <CommentCards comments={comments} username={username} />
       </div>
     );
   }
