@@ -4,6 +4,5 @@ export const UpdateDate = ({ created_at }) => {
     month: '2-digit',
     year: 'numeric'
   });
-  console.log(newDate);
   return newDate;
 };
