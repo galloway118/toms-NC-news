@@ -7,6 +7,7 @@ import ErrorHandler from './errorHandler';
 import Topics from './topicHandler';
 import SortBy from './sort_by_Handler';
 import ArticleCards from './articleCards';
+import Loading from './LoadingHandler';
 
 class Articles extends React.Component {
   state = {
@@ -33,11 +34,7 @@ class Articles extends React.Component {
   render() {
     const { articles, errorResponse, isLoading } = this.state;
     if (isLoading) {
-      return (
-        <div>
-          <h2 className="article_Banner"> LOADING...</h2>
-        </div>
-      );
+      return <Loading />;
     } else {
       if (errorResponse) {
         return <ErrorHandler err={errorResponse} />;

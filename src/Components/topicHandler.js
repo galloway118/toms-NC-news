@@ -4,6 +4,7 @@ import './pagelayout.css';
 import { fetchAllTopics } from './api';
 
 import ErrorHandler from './errorHandler';
+import Loading from './LoadingHandler';
 
 class Topics extends React.Component {
   state = {
@@ -19,11 +20,7 @@ class Topics extends React.Component {
   render() {
     const { topics, errorResponse, isLoading } = this.state;
     if (isLoading) {
-      return (
-        <div>
-          <h2 className="login_Banner"> LOADING...</h2>
-        </div>
-      );
+      return <Loading />;
     } else {
       if (errorResponse) {
         return <ErrorHandler errorResponse={errorResponse} />;

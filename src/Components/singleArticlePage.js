@@ -6,6 +6,7 @@ import { Link } from '@reach/router';
 import ErrorHandler from './errorHandler';
 import Voting from './voteHandler';
 import { UpdateDate } from './updateDateHandler';
+import Loading from './LoadingHandler';
 
 class SingleArticle extends Component {
   state = {
@@ -36,11 +37,7 @@ class SingleArticle extends Component {
     const linkPath = `/Articles/${article_id}/comments`;
 
     if (isLoading) {
-      return (
-        <div>
-          <h2 className="article_Banner"> LOADING...</h2>
-        </div>
-      );
+      return <Loading />;
     } else {
       if (errorResponse) {
         return <ErrorHandler errorResponse={errorResponse} />;

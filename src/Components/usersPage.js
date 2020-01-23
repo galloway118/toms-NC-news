@@ -5,6 +5,7 @@ import { fetchAllUsers } from './api';
 
 import ErrorHandler from './errorHandler';
 import UserCards from './userCards';
+import Loading from './LoadingHandler';
 
 class Users extends React.Component {
   state = {
@@ -19,11 +20,7 @@ class Users extends React.Component {
   render() {
     const { errorResponse, isLoading, users } = this.state;
     if (isLoading) {
-      return (
-        <div>
-          <h2 className="article_Banner"> LOADING...</h2>
-        </div>
-      );
+      return <Loading />;
     } else {
       if (errorResponse) {
         return <ErrorHandler err={errorResponse} />;

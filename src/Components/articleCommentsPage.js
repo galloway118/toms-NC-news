@@ -4,6 +4,7 @@ import './pagelayout.css';
 import { fetchCommentsbyArticleId, postComment } from './api';
 
 import CommentCards from './commentCards';
+import Loading from './LoadingHandler';
 
 class CommentsById extends React.Component {
   state = {
@@ -21,9 +22,7 @@ class CommentsById extends React.Component {
     const { comments, newComment, isLoading } = this.state;
     const { Article_id, username } = this.props;
     return isLoading ? (
-      <div>
-        <h2 className="standard_Banner"> LOADING...</h2>
-      </div>
+      <Loading />
     ) : (
       <div>
         <h2 className="standard_Banner">
