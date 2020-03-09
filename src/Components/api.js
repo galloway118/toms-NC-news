@@ -1,10 +1,12 @@
 import axios from 'axios';
 
-const baseURL = 'https://tom-news-app.herokuapp.com/api';
+//const baseURL = 'https://tom-news-app.herokuapp.com/api';
+
+const baseURL = 'https://localhost:5001/api'
 
 export const fetchAllArticles = (sort_by, topic) => {
   return axios
-    .get(`${baseURL}/articles`, {
+    .get(`${baseURL}/article`, {
       params: {
         sort_by: sort_by,
         topic: topic
