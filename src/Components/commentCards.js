@@ -3,16 +3,16 @@ import './pagelayout.css';
 
 import UpdateVote from './commentHandler';
 
-const CommentCards = ({ comments, username }) => {
+const CommentCards = ({ comments, userID }) => {
   return (
     <div className="page_layout" id="articlelist">
       <ul>
         {comments.map(comment => {
           return (
             <UpdateVote
-              key={comment.comment_id}
+              key={comment.id}
               comment={comment}
-              username={username}
+              username={userID}
             />
           );
         })}{' '}

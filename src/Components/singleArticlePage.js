@@ -14,7 +14,7 @@ class SingleArticle extends Component {
     voteChange: 0,
     isLoading: true,
     errorResponse: null,
-    filt: 'articles'
+    filt: 'article'
   };
 
   componentDidMount = () => {
@@ -24,18 +24,17 @@ class SingleArticle extends Component {
   render() {
     const {
       title,
-      article_id,
+      id,
       topic,
-      author,
+      userID,
       body,
       created_at,
       votes,
-      comment_count
+      commentCount
     } = this.state.SingleArticle;
 
     const { errorResponse, isLoading, voteChange, filt } = this.state;
-    const linkPath = `/Articles/${article_id}/comments`;
-
+    const linkPath = `/Articles/${id}/comments`;
     if (isLoading) {
       return <Loading />;
     } else {
@@ -49,21 +48,21 @@ class SingleArticle extends Component {
               <ul>
                 <li key={title}>Title: {title}</li>
                 <li key={topic}>Topic: {topic} </li>
-                <li key={author}>Author: {author} </li>
+                <li key={userID}>Author: {userID} </li>
                 <li key={body}>Article: {body} </li>
                 <li key={created_at}>
                   Posted on: <UpdateDate created_at={created_at} />{' '}
                 </li>
                 <li key={votes}>Votes: {votes + voteChange} </li>
-                <li key={article_id + comment_count}>
-                  Comment Count: {comment_count}{' '}
+                <li key={id + commentCount}>
+                  Comment Count: {commentCount}{' '}
                 </li>
               </ul>
               <button onClick={this.getComments}>
                 <Link to={linkPath}> View Comments</Link>
               </button>
               <Voting
-                id={article_id}
+                id={id}
                 voteChange={voteChange}
                 filt={filt}
                 updateVotes={this.updateVotes}
@@ -77,6 +76,7 @@ class SingleArticle extends Component {
 
   getSingleArticle = () => {
     const { Article_id } = this.props;
+
     fetchArticlebyId(Article_id)
       .then(article => {
         this.setState({ SingleArticle: article, isLoading: false });

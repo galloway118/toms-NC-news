@@ -38,9 +38,9 @@ class Login extends React.Component {
         </div>
         <div className="page_layout">
           {errorResponse !== null ? (
-            <p>{errorResponse} : Log in with "tickle122"</p>
+            <p>{errorResponse} : Log in with "1"</p>
           ) : (
-            <p>Log in with: tickle122</p>
+            <p>Log in with: 1</p>
           )}
         </div>
       </div>

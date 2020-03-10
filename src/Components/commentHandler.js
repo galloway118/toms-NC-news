@@ -11,15 +11,16 @@ class UpdateVote extends React.Component {
     voteChange: 0,
     commentDeleted: false,
     errorResponse: '',
-    filt: 'comments'
+    filt: 'comment'
   };
   render() {
-    const { comment_id, votes, created_at, author, body } = this.props.comment;
+    const { id, votes, created_at, userID, body } = this.props.comment;
+    console.dir(this.props, "h")
     const { errorResponse, commentDeleted, voteChange, filt } = this.state;
     if (commentDeleted) {
       return (
         <div>
-          <h2 id="delete_Banner"> Comment id: {comment_id} deleted</h2>
+          <h2 id="delete_Banner"> Comment id: {id} deleted</h2>
         </div>
       );
     } else {
@@ -28,7 +29,7 @@ class UpdateVote extends React.Component {
       } else {
         return (
           <>
-            <li key={comment_id}>
+            <li key={id}>
               <p>
                 Comment: {body}
                 <br></br>
@@ -36,18 +37,18 @@ class UpdateVote extends React.Component {
                 <br></br>
                 Date posted: <UpdateDate created_at={created_at} />
                 <br></br>
-                Author: {author}
+                Author: {userID}
                 <br></br>
               </p>
             </li>
             <Voting
-              id={comment_id}
+              id={id}
               voteChange={voteChange}
               filt={filt}
               updateVotes={this.updateVotes}
             />
             <button
-              disabled={this.props.username !== this.props.comment.author}
+              disabled={this.props.username !== this.props.comment.userID}
               value={this.props.comment_id}
               onClick={this.deleteComment}
             >
@@ -66,7 +67,7 @@ class UpdateVote extends React.Component {
   };
 
   deleteComment = event => {
-    removeComment(this.props.comment.comment_id)
+    removeComment(this.props.comment.id)
       .then(() => {
         this.setState({ commentDeleted: true });
       })

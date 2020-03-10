@@ -36,9 +36,9 @@ class Topics extends React.Component {
             </li>
             {topics.map(topic => {
               return (
-                <li key={topic.slug}>
-                  <button value={topic.slug} onClick={this.filterByTopic}>
-                    {topic.slug}
+                <li key={topic.topic_name}>
+                  <button value={topic.topic_name} onClick={this.filterByTopic}>
+                    {topic.topic_name}
                   </button>
                 </li>
               );

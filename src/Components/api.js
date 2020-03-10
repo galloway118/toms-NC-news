@@ -5,6 +5,7 @@ import axios from 'axios';
 const baseURL = 'https://localhost:5001/api'
 
 export const fetchAllArticles = (sort_by, topic) => {
+  console.log(topic)
   return axios
     .get(`${baseURL}/article`, {
       params: {
@@ -18,7 +19,7 @@ export const fetchAllArticles = (sort_by, topic) => {
 };
 
 export const fetchArticlebyId = id => {
-  return axios.get(`${baseURL}/articles/${id}`).then(response => {
+  return axios.get(`${baseURL}/article/${id}`).then(response => {
     return response.data.article;
   });
 };
@@ -27,36 +28,36 @@ export const updateVote = (id, votechange, filt) => {
   return axios
     .patch(`${baseURL}/${filt}/${id}`, { inc_votes: votechange })
     .then(response => {
-      console.dir(response);
       return response.data;
     });
 };
 
 export const fetchCommentsbyArticleId = id => {
-  return axios.get(`${baseURL}/articles/${id}/comments`).then(response => {
-    return response.data.comments;
+  
+  return axios.get(`${baseURL}/article/${id}/comments`).then(response => {
+    return(response.data.comments);
   });
 };
 
 export const fetchAllTopics = () => {
-  return axios.get(`${baseURL}/topics`).then(response => {
+  return axios.get(`${baseURL}/topic`).then(response => {
     return response.data.topics;
   });
 };
 
 export const removeComment = id => {
-  return axios.delete(`${baseURL}/comments/${id}`).then(response => {});
+  return axios.delete(`${baseURL}/comment/${id}`).then(response => {});
 };
 
 export const checkUser = userInput => {
-  return axios.get(`${baseURL}/users/${userInput}`).then(response => {
-    return response.data.user.username;
+  return axios.get(`${baseURL}/user/${userInput}`).then(response => {
+    return response.data.user.name;
   });
 };
 
 export const postComment = (id, username, newComment) => {
   return axios
-    .post(`${baseURL}/articles/${id}/comments`, {
+    .post(`${baseURL}/article/${id}/comments`, {
       username: username,
       body: newComment
     })
@@ -66,7 +67,7 @@ export const postComment = (id, username, newComment) => {
 };
 
 export const fetchAllUsers = () => {
-  return axios.get(`${baseURL}/users`).then(response => {
+  return axios.get(`${baseURL}/user`).then(response => {
     return response.data.users;
   });
 };

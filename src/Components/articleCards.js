@@ -8,9 +8,10 @@ const ArticleCards = ({ articles }) => {
     <div className="cards">
       <ul>
         {articles.map(article => {
-          const linkPath = `/Articles/${article.article_id}`;
+          const {id} = article 
+          const linkPath = `/Articles/${id}`;
           return (
-            <li key={article.article_id}>
+            <li key={article.id}>
               <Link to={linkPath}>
                 <p>
                   Article: {article.title} <br></br>By: {article.author}{' '}

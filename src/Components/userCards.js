@@ -6,7 +6,16 @@ const UserCards = ({ users }) => {
     <div className="cards">
       <ul>
         {users.map(user => {
-          return <li key={user.username}>{user.username}</li>;
+          return <li key={user.userName}>{user.userName} <br></br>
+          <br></br>
+          <img
+              src={user.avatarURL}
+              alt="user avatar "
+              width="50px"
+              height="50px"
+            ></img>
+           </li>;
+  
         })}
       </ul>
     </div>
